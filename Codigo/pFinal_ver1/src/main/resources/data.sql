@@ -1,6 +1,5 @@
-create database prueba2team4;
-
-use prueba2team4;
+DROP table IF EXISTS hoteles;
+DROP TABLE IF EXISTS poblaciones;
 
 create table poblaciones(
 id_poblacion int unsigned auto_increment,
@@ -28,7 +27,7 @@ imagen text,
 telefono varchar(9) not null,
 id_poblacion int unsigned,
 primary key (id_hotel),
-foreign key (id_poblacion) references poblaciones(id_poblacion) on delete restrict on update cascade);
+foreign key (id_poblacion) references poblaciones(id_poblacion) /*on delete restrict*/ on update cascade);
 
 insert into hoteles (nombre, categoria, ubi_lat, ubi_long, precio_noche, valoracion, imagen, telefono, id_poblacion) values
 ('Sevilla Ayre Hotel', '4', 37.389538, -5.974852, 67, 'muy bien', 'url de la imagen', '954919797', 3),
