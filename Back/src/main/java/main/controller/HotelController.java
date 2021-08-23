@@ -41,13 +41,13 @@ public class HotelController {
 		return hotelServ.findByName(nombre);
 	}
 	
-	@PostMapping("/hoteles")
-	public Hotel insertar_hotel(@RequestBody Hotel hotel) {
-		return hotelServ.insertar_hotel(hotel);
+	@PostMapping("/hoteles/{id_pob}")
+	public Hotel insertar_hotel(@PathVariable(name="id_pob") int id_pob, @RequestBody Hotel hotel) {
+		return hotelServ.insertar_hotel(hotel, id_pob);
 	}
 	
-	@PutMapping("/hoteles/{id_hotel}")
-	public Hotel actualizar_hotel(@PathVariable(name="id_hotel") int id, @RequestBody Hotel hotel) {
+	@PutMapping("/hoteles/{id_hotel}/{id_pob}")
+	public Hotel actualizar_hotel(@PathVariable(name="id_hotel") int id, @PathVariable(name="id_pob") int id_pob, @RequestBody Hotel hotel) {
 		Hotel hot = hotelServ.buscar_id(id);
 		hot.setNombre(hotel.getNombre());
 		hot.setCategoria(hotel.getCategoria());
@@ -57,8 +57,7 @@ public class HotelController {
 		hot.setValoracion(hotel.getValoracion());
 		hot.setUbi_lat(hotel.getUbi_lat());
 		hot.setUbi_long(hotel.getUbi_long());
-		hot.setPoblacion(hotel.getPoblacion());
-		return hotelServ.actualizar_hotel(hot);
+		return hotelServ.actualizar_hotel(hot, id_pob);
 	}
 	
 	@DeleteMapping("/hoteles/{id_hotel}")

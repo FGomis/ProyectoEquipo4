@@ -15,9 +15,9 @@ public interface IHotelService {
 	
 	public Hotel buscar_id(int id);
 	
-	public Hotel insertar_hotel(Hotel hotel);
+	public Hotel insertar_hotel(Hotel hotel, int id_pob);
 	
-	public Hotel actualizar_hotel(Hotel hotel);
+	public Hotel actualizar_hotel(Hotel hotel, int id_pob);
 	
 	public String eliminar_hotel(int id);
 	

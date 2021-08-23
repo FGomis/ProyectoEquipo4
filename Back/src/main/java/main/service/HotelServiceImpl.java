@@ -2,6 +2,8 @@ package main.service;
 
 import main.dto.Hotel;
 import main.dao.IHotelDao;
+import main.dao.IPoblacionDao;
+import main.dto.Poblacion;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,9 @@ public class HotelServiceImpl implements IHotelService {
 	@Autowired
 	IHotelDao hotelDao;
 	
+	@Autowired
+	IPoblacionDao ipobDao;
+	
 	@Override
 	public List<Hotel> listar_hoteles(){
 		return hotelDao.findAll();
@@ -29,12 +34,16 @@ public class HotelServiceImpl implements IHotelService {
 	}
 	
 	@Override
-	public Hotel insertar_hotel(Hotel hotel) {
+	public Hotel insertar_hotel(Hotel hotel, int id_pob) {
+		Poblacion pob = ipobDao.findById(id_pob).get();
+		hotel.setPoblacion(pob);
 		return hotelDao.save(hotel);
 	}
 
 	@Override
-	public Hotel actualizar_hotel(Hotel hotel) {
+	public Hotel actualizar_hotel(Hotel hotel, int id_pob) {
+		Poblacion pob = ipobDao.findById(id_pob).get();
+		hotel.setPoblacion(pob);
 		return hotelDao.save(hotel);
 	}
 	

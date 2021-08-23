@@ -57,6 +57,7 @@ public class PoblacionServiceImpl implements IPoblacionService {
 		return null;
 	}
 	
+	@Override
 	public List<Hotel> findHotelsByLocation(String nombre){
 		Poblacion pobla = findByName(nombre);
 		if(pobla==null) {
