@@ -1,10 +1,9 @@
 package main.service;
 
-import main.dto.Hotel;
-import main.dao.IHotelDao;
-import main.dao.IPoblacionDao;
-import main.dto.Poblacion;
+import main.dto.*;
+import main.dao.*;
 import java.util.List;
+import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,13 +52,73 @@ public class HotelServiceImpl implements IHotelService {
 		return "Eliminado el registro con ID: "+id;
 	}
 	
+	@Override
 	public List<Hotel> findByName(String nombre){
-		List<Hotel> lista = hotelDao.findAll();
-		for(int i=0;i<lista.size();i++) {
-			if(lista.get(i).getNombre().toLowerCase().equals(nombre.toLowerCase())==false) {
-				lista.remove(i);
+		List<Hotel> listaAll = hotelDao.findAll();
+		List<Hotel> listaFinal = new ArrayList<Hotel>();
+		for(int i=0;i<listaAll.size();i++) {
+			if(listaAll.get(i).getNombre().toLowerCase().equals(nombre.toLowerCase())) {
+				listaFinal.add(listaAll.get(i));
 			}
 		}
-		return lista;
+		return listaFinal;
+	}
+	
+	@Override
+	public List<Hotel> findByPrice(float precio_minimo, float precio_maximo){
+		List<Hotel> listaAll = hotelDao.findAll();
+		List<Hotel> listaFinal = new ArrayList<Hotel>();
+		for(int i=0;i<listaAll.size();i++) {
+			if(listaAll.get(i).getPrecio_noche()<=precio_maximo && listaAll.get(i).getPrecio_noche()>=precio_minimo) {
+				listaFinal.add(listaAll.get(i));
+			}
+		}
+		return listaFinal;		
+	}
+	
+	@Override
+	public List<Hotel> findByValoracion(String val){
+		List<Hotel> listaFinal = new ArrayList<Hotel>();
+		if(val.toLowerCase().equals("basico") || val.toLowerCase().equals("bien") || val.toLowerCase().equals("muybien") || val.toLowerCase().equals("excelente")) {
+				Valoracion valoracion = Valoracion.valueOf(val);
+				List<Hotel> listaAll = hotelDao.findAll();
+				for(int i=0;i<listaAll.size();i++) {
+					if(listaAll.get(i).getValoracion().compareTo(valoracion)==0) {
+						listaFinal.add(listaAll.get(i));
+					}
+				}
+		}
+		return listaFinal;
+	}
+	
+	@Override
+	public List<Hotel> findByCategoria(int num){
+		List<Hotel> listaFinal = new ArrayList<Hotel>();
+		Categoria cat;
+		if(num<=5 && num>=1) {
+			switch(num) {
+			case 1:
+				cat = Categoria.valueOf("uno");
+				break;
+			case 2:
+				cat = Categoria.valueOf("dos");
+				break;
+			case 3:
+				cat = Categoria.valueOf("tres");
+				break;
+			case 4:
+				cat = Categoria.valueOf("cuatro");
+				break;
+			default:
+				cat = Categoria.valueOf("cinco");
+			}
+			List<Hotel> listaAll = hotelDao.findAll();
+			for(int i=0;i<listaAll.size();i++) {
+				if(listaAll.get(i).getCategoria().compareTo(cat)==0) {
+					listaFinal.add(listaAll.get(i));
+				}
+			}
+		}
+		return listaFinal;
 	}
 }
