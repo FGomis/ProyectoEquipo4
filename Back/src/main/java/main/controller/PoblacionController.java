@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /*
  * 	@autor Diego Manriquez Canales
- * 	@version 0.1
+ * 	@version 0.2
  * 
  */
 
@@ -37,9 +37,24 @@ public class PoblacionController {
 		return pobServ.buscar_id(id);
 	}
 	
-	@GetMapping("/poblaciones/hoteles/{nombre}")
+	@GetMapping("/poblaciones/{nombre}/hoteles")
 	public List<Hotel> buscar_hoteles(@PathVariable(name="nombre") String nombre){
 		return pobServ.findHotelsByLocation(nombre);
+	}
+	
+	@GetMapping("/poblaciones/{nombre}/hoteles/{min}/{max}")
+	public List<Hotel> buscar_por_precio(@PathVariable(name="nombre") String nombre, @PathVariable(name="min") float min, @PathVariable(name="max") float max){
+		return pobServ.findHotelsByPrice(nombre, min, max);
+	}
+	
+	@GetMapping("/poblaciones/{nombre}/hoteles/categoria/{cat}")
+	public List<Hotel> buscar_por_categoria(@PathVariable(name="nombre") String nombre, @PathVariable(name="cat") int cat){
+		return pobServ.findHotelsByCategory(nombre, cat);
+	}
+	
+	@GetMapping("/poblaciones/{nombre}/hoteles/valoracion/{val}")
+	public List<Hotel> buscar_por_valoracion(@PathVariable(name="nombre") String nombre, @PathVariable(name="val") String val){
+		return pobServ.findHotelsByValoration(nombre, val);
 	}
 	
 	@PostMapping("/poblaciones")

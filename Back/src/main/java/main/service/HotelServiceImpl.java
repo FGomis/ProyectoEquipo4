@@ -109,8 +109,11 @@ public class HotelServiceImpl implements IHotelService {
 			case 4:
 				cat = Categoria.valueOf("cuatro");
 				break;
-			default:
+			case 5:
 				cat = Categoria.valueOf("cinco");
+				break;
+			default:
+				cat = Categoria.valueOf("uno");
 			}
 			List<Hotel> listaAll = hotelDao.findAll();
 			for(int i=0;i<listaAll.size();i++) {

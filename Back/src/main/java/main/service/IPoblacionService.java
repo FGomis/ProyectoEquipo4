@@ -6,7 +6,7 @@ import main.dto.Hotel;
 
 /*
  * 	@autor Diego Manriquez Canales
- * 	@version 0.1
+ * 	@version 0.2
  * 
  */
 
@@ -27,5 +27,14 @@ public interface IPoblacionService {
 	
 	// Metodo para buscar los hoteles de una poblacion
 	public List<Hotel> findHotelsByLocation(String nombre);
+	
+	// Metodo para buscar hoteles por precio dentro de una poblacion
+	public List<Hotel> findHotelsByPrice(String nombre, float precio_minimo, float precio_maximo);
+	
+	// Metodo para buscar hoteles por categoria dentro de una poblacion
+	public List<Hotel> findHotelsByCategory(String nombre, int num);
+	
+	// Metodo para buscar hoteles por valoracion dentro de una poblacion
+	public List<Hotel> findHotelsByValoration(String nombre, String val);
 	
 }
