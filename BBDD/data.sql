@@ -14,7 +14,7 @@ insert into poblaciones (nombre, ubi_lat, ubi_long) values
 ('Sevilla', 37.38283, -5.97317),
 ('Madrid', 40.4165, -3.70256),
 ('Zaragoza', 41.65606, -0.87734),
-('Gerona', 35.65606, 1.2587734);
+('Gerona', 41.98311, 2.82493);
 
 create table hoteles(
 id_hotel int unsigned auto_increment,
