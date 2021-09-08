@@ -1,5 +1,5 @@
 package main.dto;
 
 public enum Categoria {
-	uno, dos, tres, cuatro, cinco;
+	cero, uno, dos, tres, cuatro, cinco;
 }
