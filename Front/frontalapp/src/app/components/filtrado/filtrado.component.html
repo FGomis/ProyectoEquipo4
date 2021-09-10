@@ -1,106 +1,123 @@
-<div class="container">
-  <div class="city">
-    <h3>Mostrando hoteles en {{currentCity}} </h3>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col city"><h2>Mostrando hoteles en {{currentCity}}</h2></div>
   </div>
 
-  <div class="filtrados overflow-auto">
-    <h5><strong>Filtros</strong></h5>
-    <div class="category apartado">
-      <label class="lbl_apartado"><strong>Categoría: </strong></label>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="5" id="flexCheckFive">
-        <label class="form-check-label" for="flexCheckFive">5 estrellas</label>
+  <div class="row">
+    <div class="col-2 filtrado overflow-auto">
+      <h5><strong>Filtros</strong></h5>
+      <div class="category apartado">
+        <label class="lbl_apartado"><strong>Categoría: </strong></label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="5" id="flexCheckFive">
+          <label class="form-check-label" for="flexCheckFive">5 estrellas</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="4" id="flexCheckFour">
+          <label class="form-check-label" for="flexCheckFour">4 estrellas</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="3" id="flexCheckThree">
+          <label class="form-check-label" for="flexCheckThree">3 estrellas</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="2" id="flexCheckTwo">
+          <label class="form-check-label" for="flexCheckTwo">2 estrellas</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="1" id="flexCheckOne">
+          <label class="form-check-label" for="flexCheckOne">1 estrella</label>
+        </div>
       </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="4" id="flexCheckFour">
-        <label class="form-check-label" for="flexCheckFour">4 estrellas</label>
+      <div class="price apartado">
+        <label class="lbl_apartado"><strong>Rango de Precios: </strong></label>
+        <div class="div_price">
+          <label class="lbl_price" for="sel_min">Mínimo: </label>
+          <select id="sel_min" class="form-select form-select-sm">
+            <option selected>Default</option>
+            <option value="10">10€</option>
+            <option value="50">50€</option>
+            <option value="100">100€</option>
+          </select>
+        </div>
+        <div class="div_price">
+          <label class="lbl_price" for="sel_max">Máximo: </label>
+          <select id="sel_max" class="form-select form-select-sm">
+            <option selected>Default</option>
+            <option value="50">50€</option>
+            <option value="100">100€</option>
+            <option value="200">200€</option>
+          </select>
+        </div>
       </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="3" id="flexCheckThree">
-        <label class="form-check-label" for="flexCheckThree">3 estrellas</label>
+      <div class="valoration apartado">
+        <label class="lbl_apartado"><strong>Valoración: </strong></label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="basico" id="flexCheckBasic">
+          <label class="form-check-label" for="flexCheckBasic">Básico</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="bien" id="flexCheckGood">
+          <label class="form-check-label" for="flexCheckGood">Bien</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="muybien" id="flexCheckVeryGood">
+          <label class="form-check-label" for="flexCheckVeryGood">Muy Bien</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="excelente" id="flexCheckExcellent">
+          <label class="form-check-label" for="flexCheckExcellent">Excelente</label>
+        </div>
       </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="2" id="flexCheckTwo">
-        <label class="form-check-label" for="flexCheckTwo">2 estrellas</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="1" id="flexCheckOne">
-        <label class="form-check-label" for="flexCheckOne">1 estrella</label>
+      <div class="distance apartado">
+        <label class="lbl_apartado"><strong>Distancia al Centro: </strong></label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="1" id="flexCheck1km">
+          <label class="form-check-label" for="flexCheck1km">Menos de 1 km</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="2" id="flexCheck2km">
+          <label class="form-check-label" for="flexCheck2km">Menos de 2 km</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="5" id="flexCheck5km">
+          <label class="form-check-label" for="flexCheck5km">Menos de 5 km</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="10" id="flexCheck10km">
+          <label class="form-check-label" for="flexCheck10km">Menos de 10 km</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="11" id="flexCheckMore10km">
+          <label class="form-check-label" for="flexCheckMore10km">Más de 10 km</label>
+        </div>
       </div>
     </div>
-    <div class="price apartado">
-      <label class="lbl_apartado"><strong>Rango de Precios: </strong></label>
-      <div class="div_price">
-        <label class="lbl_price" for="sel_min">Mínimo: </label>
-        <select id="sel_min" class="form-select form-select-sm">
-          <option selected>Default</option>
-          <option value="10">10€</option>
-          <option value="50">50€</option>
-          <option value="100">100€</option>
-        </select>
-      </div>
-      <div class="div_price">
-        <label class="lbl_price" for="sel_max">Máximo: </label>
-        <select id="sel_max" class="form-select form-select-sm">
-          <option selected>Default</option>
-          <option value="50">50€</option>
-          <option value="100">100€</option>
-          <option value="200">200€</option>
-        </select>
-      </div>
-    </div>
-    <div class="valoration apartado">
-      <label class="lbl_apartado"><strong>Valoración: </strong></label>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="basico" id="flexCheckBasic">
-        <label class="form-check-label" for="flexCheckBasic">Básico</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="bien" id="flexCheckGood">
-        <label class="form-check-label" for="flexCheckGood">Bien</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="muybien" id="flexCheckVeryGood">
-        <label class="form-check-label" for="flexCheckVeryGood">Muy Bien</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="excelente" id="flexCheckExcellent">
-        <label class="form-check-label" for="flexCheckExcellent">Excelente</label>
-      </div>
-    </div>
-    <div class="distance apartado">
-      <label class="lbl_apartado"><strong>Distancia al Centro: </strong></label>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="1" id="flexCheck1km">
-        <label class="form-check-label" for="flexCheck1km">Menos de 1 km</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="2" id="flexCheck2km">
-        <label class="form-check-label" for="flexCheck2km">Menos de 2 km</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="5" id="flexCheck5km">
-        <label class="form-check-label" for="flexCheck5km">Menos de 5 km</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="10" id="flexCheck10km">
-        <label class="form-check-label" for="flexCheck10km">Menos de 10 km</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="11" id="flexCheckMore10km">
-        <label class="form-check-label" for="flexCheckMore10km">Más de 10 km</label>
-      </div>
-    </div>
-  </div>
 
-  <div class="mapa">
-    <google-map id="map" width="700px" [center]="currentCenter" [zoom]="13">
-      <map-marker *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label"
-      [options]="marker.options" (click)="openInfo()"></map-marker>
-    </google-map>
-  </div>
+    <div class="col-7">
+      <google-map id="map" width="100%" height="100%" [center]="currentCenter" [zoom]="13">
+        <map-marker *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label"
+        [options]="marker.options"></map-marker>
+      </google-map>
+    </div>
 
-  <div class="listado">
-
+    <div class="col listado overflow-auto">
+      <div class="hotelito container-fluid" *ngFor="let hotel of listaHotels">
+        <div class="row hote_row">
+          <div class="col">
+            <h4 class="name_hotel">{{hotel.nombre}}</h4>
+          </div>
+          <div class="col col-cat">
+            <span class="estrellas">{{hotel.categoria}}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="yellow" class="bi bi-star-fill" viewBox="0 0 16 16">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
+          </div>
+        </div>
+        <!--<div class="row">
+          <div class="col"><p>A {{dist}} km del centro</p></div>
+        </div>-->
+      </div>
+    </div>
   </div>
 </div>
