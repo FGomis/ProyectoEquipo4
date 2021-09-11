@@ -12,6 +12,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { HotelInfoComponent } from './components/hotel-info/hotel-info.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     BusquedaComponent,
     LoginComponent,
     SignupComponent,
-    ProfileComponent
+    ProfileComponent,
+    HotelInfoComponent
   ],
   imports: [
     BrowserModule,
