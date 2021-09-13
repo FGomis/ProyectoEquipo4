@@ -1,8 +1,11 @@
 .filtrado {border: 2px solid;
   border-radius: 5px;}
+.filtrado, .mapita, .listado {margin-bottom: 7px;}
 .city {margin-bottom: 10px;}
 .apartado {margin-left: 5px;}
-h5 {text-align: center;}
+.row {max-height: 100%;}
+.row1 {margin-left: 1.3px;
+  width: 100%;}
 .div_price {display: flex;
   flex-direction: row;
   align-items: center;}
