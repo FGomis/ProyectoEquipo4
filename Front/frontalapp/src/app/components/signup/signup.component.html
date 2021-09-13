@@ -1,3 +1,4 @@
+<!--
 <div class="container">
   <div class="titulo">
     <h2>Formulario de Registro</h2>
@@ -6,29 +7,52 @@
     <div class="ap nombre">
       <label for="name" class="col-sm-2 col-form-label">Nombre:</label>
       <div>
-        <input type="text" id="name" placeholder="Introduzca su nombre"/>
+        <input type="text" id="name" placeholder="Introduzca su nombre" [(ngModel)]="nombre"/>
       </div>
     </div>
     <div class="ap apels">
       <label for="apel" class="col-sm-2 col-form-label">Apellidos:</label>
       <div>
-        <input type="text" id="apel" placeholder="Introduzca sus apellidos"/>
+        <input type="text" id="apel" placeholder="Introduzca sus apellidos" [(ngModel)]="apellidos"/>
       </div>
     </div>
     <div class="ap email">
       <label for="email" class="col-sm-2 col-form-label">Correo Electrónico:</label>
       <div>
-        <input type="email" id="email" placeholder="Introduzca su correo electrónico"/>
+        <input type="email" id="email" placeholder="Introduzca su correo electrónico" [(ngModel)]="correo"/>
       </div>
     </div>
     <div class="ap password">
       <label for="passw" class="col-sm-2 col-form-label">Contraseña:</label>
       <div>
-        <input type="password" id="passw"/>
+        <input type="password" id="passw" [(ngModel)]="pass"/>
+      </div>
+    </div>
+    <div class="ap pass-confirm">
+      <label for="passw-conf" class="col-sm-2 col-form-label">Confirmar contraseña:</label>
+      <div>
+        <input type="password" id="passw-conf" [(ngModel)]="conf_pass"/>
       </div>
     </div>
     <div class="ap botoncito">
-      <button class="btn btn-primary">Registrarse</button>
+      <button (click)="confirm_passw()" class="btn btn-primary">Registrarse</button>
+    </div>
+    <div *ngIf="pass_iguales==false" class="ap mensaje_error">
+      <p style="color: red;">Los datos introducidos no son correctos</p>
     </div>
   </div>
 </div>
+
+-->
+<section class="form-login-register">
+  <h5>Crear cuenta</h5>
+  <input class="controls" type="text" name="nombre" value="" placeholder="Nombre" [(ngModel)]="nombre">
+  <input class="controls" type="text" name="apellido" value="" placeholder="Apellidos" [(ngModel)]="apellidos">
+  <input class="controls" type="text" name="usuario" value="" placeholder="Usuario" [(ngModel)]="usuario">
+  <input class="controls" type="password" name="contrasena" value="" placeholder="Contraseña" [(ngModel)]="pass">
+  <input class="controls" type="password" name="contrasena" value="" placeholder="Repita la contraseña" [(ngModel)]="conf_pass">
+  <input class="buttons" type="submit" name="" value="Crear cuenta" (click)="confirm_passw()">
+  <p><a href="login">Ya tengo una cuenta</a></p>
+</section>
+<p><br></p>
+<p *ngIf="pass_iguales==false" style="color: red; text-align: center;">Los datos introducidos no son correctos</p>

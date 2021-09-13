@@ -17,7 +17,8 @@
 .hotelito {border: 2px solid black;
   border-radius: 5px;
   margin-bottom: 10px;}
-.col-cat {padding-top: 6px;}
+.col-cat {padding-top: 6px;
+  padding-left: 0px}
 .estrellas {-webkit-text-stroke: 0.3px black;
   font-size: large;
   font-weight: bold;

@@ -8,11 +8,11 @@ import { BusquedaComponent } from './components/busqueda/busqueda.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { HotelInfoComponent } from './components/hotel-info/hotel-info.component';
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { GoogleMapsModule } from '@angular/google-maps';
-import { HotelInfoComponent } from './components/hotel-info/hotel-info.component';
 
 @NgModule({
   declarations: [

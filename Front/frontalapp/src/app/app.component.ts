@@ -7,7 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Hotel Searcher';
+  currentUser = '';
   isLoggedIn = true;
+
+  constructor() { }
 
   logOut(){
     this.isLoggedIn=false;

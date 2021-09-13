@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -12,9 +13,10 @@ export class ProfileComponent implements OnInit {
   email = "ejemplo@dominio.com";
   historial = "Vacío";
 
-  constructor() { }
+  constructor(private acRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.nombre = this.acRoute.snapshot.params.user;
   }
 
 }
