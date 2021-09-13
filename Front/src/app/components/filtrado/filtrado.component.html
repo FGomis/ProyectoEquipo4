@@ -1,0 +1,116 @@
+<div class="container">
+  <div class="city">
+    <h3>Mostrando hoteles en {{currentCity}} </h3>
+  </div>
+
+  <div class="filtrados overflow-auto">
+    <h5><strong>Filtros</strong></h5>
+    <div class="category apartado">
+      <label class="lbl_apartado"><strong>Categoría: </strong></label>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="5" id="flexCheckFive">
+        <label class="form-check-label" for="flexCheckFive">5 estrellas</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="4" id="flexCheckFour">
+        <label class="form-check-label" for="flexCheckFour">4 estrellas</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="3" id="flexCheckThree">
+        <label class="form-check-label" for="flexCheckThree">3 estrellas</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="2" id="flexCheckTwo">
+        <label class="form-check-label" for="flexCheckTwo">2 estrellas</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="1" id="flexCheckOne">
+        <label class="form-check-label" for="flexCheckOne">1 estrella</label>
+      </div>
+    </div>
+    <div class="price apartado">
+      <label class="lbl_apartado"><strong>Rango de Precios: </strong></label>
+      <div class="div_price">
+        <label class="lbl_price" for="sel_min">Mínimo: </label>
+        <select id="sel_min" class="form-select form-select-sm">
+          <option selected>Default</option>
+          <option value="10">10€</option>
+          <option value="50">50€</option>
+          <option value="100">100€</option>
+        </select>
+      </div>
+      <div class="div_price">
+        <label class="lbl_price" for="sel_max">Máximo: </label>
+        <select id="sel_max" class="form-select form-select-sm">
+          <option selected>Default</option>
+          <option value="50">50€</option>
+          <option value="100">100€</option>
+          <option value="200">200€</option>
+        </select>
+      </div>
+    </div>
+    <div class="valoration apartado">
+      <label class="lbl_apartado"><strong>Valoración: </strong></label>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="basico" id="flexCheckBasic">
+        <label class="form-check-label" for="flexCheckBasic">Básico</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="bien" id="flexCheckGood">
+        <label class="form-check-label" for="flexCheckGood">Bien</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="muybien" id="flexCheckVeryGood">
+        <label class="form-check-label" for="flexCheckVeryGood">Muy Bien</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="excelente" id="flexCheckExcellent">
+        <label class="form-check-label" for="flexCheckExcellent">Excelente</label>
+      </div>
+    </div>
+    <div class="distance apartado">
+      <label class="lbl_apartado"><strong>Distancia al Centro: </strong></label>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="1" id="flexCheck1km">
+        <label class="form-check-label" for="flexCheck1km">Menos de 1 km</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="2" id="flexCheck2km">
+        <label class="form-check-label" for="flexCheck2km">Menos de 2 km</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="5" id="flexCheck5km">
+        <label class="form-check-label" for="flexCheck5km">Menos de 5 km</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="10" id="flexCheck10km">
+        <label class="form-check-label" for="flexCheck10km">Menos de 10 km</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="11" id="flexCheckMore10km">
+        <label class="form-check-label" for="flexCheckMore10km">Más de 10 km</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="mapa">
+    <google-map id="map" width="700px" [center]="currentCenter" [zoom]="13">
+      <map-marker *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label"
+      [options]="marker.options" (click)="getHoteles()"></map-marker>
+    </google-map>
+  </div>
+
+  <div class="listado">
+      <button type="button" (click)="getHoteles()">Listar hoteles</button>
+
+      <div *ngIf="listahoteles">
+        <hr>
+
+        <ul>
+          <li *ngFor="let hotel of listahoteles;">
+            {{hotel.nombre}} se encuentra en {{hotel.poblacion.nombre}} y tiene {{hotel.categoria}} estrellas
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
