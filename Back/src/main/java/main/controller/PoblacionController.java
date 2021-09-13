@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 /*
  * 	@autor Diego Manriquez Canales
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class PoblacionController {
 
 	@Autowired
@@ -35,6 +38,11 @@ public class PoblacionController {
 	@GetMapping("/poblaciones/{id_poblacion}")
 	public Poblacion buscar_por_id(@PathVariable(name="id_poblacion") int id) {
 		return pobServ.buscar_id(id);
+	}
+	
+	@GetMapping("/poblaciones/nombre/{nombre}")
+	public Poblacion buscar_por_nombre(@PathVariable(name="nombre") String nombre) {
+		return pobServ.findByName(nombre);
 	}
 	
 	@GetMapping("/poblaciones/{nombre}/hoteles")

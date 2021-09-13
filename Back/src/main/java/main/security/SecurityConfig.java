@@ -14,6 +14,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
             .antMatchers("/login").permitAll() //permitimos el acceso a /login a cualquiera
+            .antMatchers("/api/poblaciones/{nombre}/hoteles").permitAll()
+            .antMatchers("/api/poblaciones/nombre/{nombre}").permitAll()
+            .antMatchers("/api/hoteles/{id_hotel}").permitAll()
             .anyRequest().authenticated() //cualquier otra peticion requiere autenticacion
             .and()
             // Las peticiones /login pasaran previamente por este filtro
