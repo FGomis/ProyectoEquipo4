@@ -94,9 +94,9 @@
 
     <div class="col listado overflow-auto">
       <div class="hotelito container-fluid" *ngFor="let hotel of listaHotelesFiltrados">
-        <div class="row hote_row">
+        <div (click)="goHotel(hotel.id_hotel, currentPoblation.ubi_lat, currentPoblation.ubi_long)" class="row hote_row">
           <div class="col-8">
-            <h5 (click)="goHotel(hotel.id_hotel, currentPoblation.ubi_lat, currentPoblation.ubi_long)" class="name_hotel">{{listaHotelesFiltrados.indexOf(hotel)+1}}. {{hotel.nombre}}</h5>
+            <h5 class="name_hotel">{{listaHotelesFiltrados.indexOf(hotel)+1}}. {{hotel.nombre}}</h5>
           </div>
           <div class="col-4 col-cat">
             <svg *ngFor="let list of listaCategorias[listaHotelesFiltrados.indexOf(hotel)]" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="yellow" class="bi bi-star-fill" viewBox="0 0 16 16">

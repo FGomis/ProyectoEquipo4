@@ -16,9 +16,12 @@
 .form-select-sm {width: 100px;}
 .hotelito {border: 2px solid black;
   border-radius: 5px;
+  box-shadow: 0 0 15px rgb(0, 0, 0);
   margin-bottom: 10px;}
+.hotelito:hover {box-shadow: 0 0 15px rgb(26, 182, 255);}
 .col-cat {padding-top: 6px;
-  padding-left: 0px}
+  padding-left: 0px;}
+.hote_row {cursor: pointer;}
 .estrellas {-webkit-text-stroke: 0.3px black;
   font-size: large;
   font-weight: bold;

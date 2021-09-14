@@ -25,9 +25,6 @@ export class HotelInfoComponent implements OnInit {
     direccion: '',
   }
 
-  // imagenH10: string = "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/7e/af/36/rooftop-bar-caelum.jpg?w=900&h=-1&s=1";
-  // imagenAstari: string = "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/9a/94/46/astari-hotel.jpg?w=900&h=-1&s=1";
-
   // Calculamos la distancia del hotel al centro de la ciudad
   distancia: number = 0;
 
@@ -46,7 +43,7 @@ export class HotelInfoComponent implements OnInit {
     },
     label: {
       color: 'white',
-      text: this.hotel.nombre
+      text: '·'
     },
     clickeable: true,
     options: {
@@ -73,7 +70,7 @@ export class HotelInfoComponent implements OnInit {
       },
       label: {
         color: 'white',
-        text: this.hotel.nombre
+        text: '·'
       },
       clickeable: true,
       options: {
@@ -81,14 +78,38 @@ export class HotelInfoComponent implements OnInit {
       }
     }
     this.distancia = Math.round(this.getDistancia(this.hotel.ubi_lat, this.hotel.ubi_long)*100)/100;
-    console.log("Focus: "+this.focus_point.lat+", "+this.focus_point.lng )
     for(let i=0;i<this.cambiaTipo(this.hotel.categoria);i++){
       this.numbers.push(i);
     }
   }
 
   getDistancia(lat: number, long: number){
-    return Math.sqrt(Math.pow(this.focus_point.lat-lat, 2)+Math.pow(this.focus_point.lng-long, 2));
+
+    var earthRadius: number = 6371; // En Km
+
+    // Pasamos de grados a radianes para utilizar la formula
+    lat = this.degrees_to_radians(lat);
+    long = this.degrees_to_radians(long);
+    let lat2 = this.degrees_to_radians(this.focus_point.lat);
+    let lng2 = this.degrees_to_radians(this.focus_point.lng);
+
+    let dlon = (lng2-long);
+    let dlat = (lat2-lat);
+
+    let sinlat = Math.sin(dlat / 2);
+    let sinlon = Math.sin(dlon / 2);
+
+    let a = (sinlat * sinlat) + Math.cos(lat)*Math.cos(lat2)*(sinlon*sinlon);
+    let c = 2 * Math.asin (Math.min(1.0, Math.sqrt(a)));
+
+    let distanceInKm = earthRadius * c;
+
+    return distanceInKm;
+  }
+
+  degrees_to_radians(degrees: number){
+    var pi = Math.PI;
+    return degrees * (pi/180);
   }
 
   capitalize(cadena: string){

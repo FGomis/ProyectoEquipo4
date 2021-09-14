@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  currentName = "Diego"
   currentEmail = "";
   currentPass = "";
 
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   checkUser(){
     console.log(this.currentEmail+"\n"+this.currentPass);
-    this.router.navigate(["busqueda"]);
+    this.router.navigate(["busqueda/"+this.currentName]);
   }
 
 }

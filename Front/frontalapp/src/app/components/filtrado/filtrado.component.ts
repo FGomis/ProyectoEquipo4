@@ -259,7 +259,31 @@ export class FiltradoComponent implements OnInit {
   }
 
   getDistancia(lat: number, long: number){
-    return Math.sqrt(Math.pow(this.currentPoblation.ubi_lat-lat, 2)+Math.pow(this.currentPoblation.ubi_long-long, 2));
+    var earthRadius: number = 6371; // En Km
+
+    // Pasamos de grados a radianes para utilizar la formula
+    lat = this.degrees_to_radians(lat);
+    long = this.degrees_to_radians(long);
+    let lat2 = this.degrees_to_radians(this.currentPoblation.ubi_lat);
+    let lng2 = this.degrees_to_radians(this.currentPoblation.ubi_long);
+
+    let dlon = (lng2-long);
+    let dlat = (lat2-lat);
+
+    let sinlat = Math.sin(dlat / 2);
+    let sinlon = Math.sin(dlon / 2);
+
+    let a = (sinlat * sinlat) + Math.cos(lat)*Math.cos(lat2)*(sinlon*sinlon);
+    let c = 2 * Math.asin (Math.min(1.0, Math.sqrt(a)));
+
+    let distanceInKm = earthRadius * c;
+
+    return distanceInKm;
+  }
+
+  degrees_to_radians(degrees: number){
+    var pi = Math.PI;
+    return degrees * (pi/180);
   }
 
   capitalize(cadena: string){

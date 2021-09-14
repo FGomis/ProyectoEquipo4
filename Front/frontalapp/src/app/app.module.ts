@@ -13,6 +13,8 @@ import { HotelInfoComponent } from './components/hotel-info/hotel-info.component
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { TelefonoPipe } from './telefono.pipe';
+import { LetrasPipe } from './letras.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { GoogleMapsModule } from '@angular/google-maps';
     LoginComponent,
     SignupComponent,
     ProfileComponent,
-    HotelInfoComponent
+    HotelInfoComponent,
+    TelefonoPipe,
+    LetrasPipe
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,6 @@ export class HotelService {
   constructor(private http: HttpClient) { }
 
   public getHotel(id_hotel: number): Observable<Hotel> {
-    return this.http.get<Hotel>("http://localhost:8084/api/hoteles/"+id_hotel);
+    return this.http.get<Hotel>("https://team4-back-end.herokuapp.com/api/hoteles/"+id_hotel);
   }
 }

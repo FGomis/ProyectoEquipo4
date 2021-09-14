@@ -11,7 +11,7 @@ export class ProfileComponent implements OnInit {
   nombre = "Diego";
   apellidos = "Manríquez Canales";
   email = "ejemplo@dominio.com";
-  historial = "Vacío";
+  historial = "...";
 
   constructor(private acRoute: ActivatedRoute) { }
 

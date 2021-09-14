@@ -12,11 +12,11 @@ export class PoblacionService {
   constructor(private http: HttpClient) {  }
 
   public getHoteles(nombre_poblacion: string): Observable<Hotel[]> {
-    return this.http.get<Hotel[]>("http://localhost:8084/api/poblaciones/"+nombre_poblacion+"/hoteles");
+    return this.http.get<Hotel[]>("https://team4-back-end.herokuapp.com/api/poblaciones/"+nombre_poblacion+"/hoteles");
   }
 
   public getPoblacion(nombre_poblacion: string): Observable<Poblacion> {
-    return this.http.get<Poblacion>("http://localhost:8084/api/poblaciones/nombre/"+nombre_poblacion);
+    return this.http.get<Poblacion>("https://team4-back-end.herokuapp.com/api/poblaciones/nombre/"+nombre_poblacion);
   }
 }
 
