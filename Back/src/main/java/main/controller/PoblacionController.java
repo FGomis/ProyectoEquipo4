@@ -5,6 +5,7 @@ import main.dto.Hotel;
 import main.service.PoblacionServiceImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,11 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "https://team4-back-end.herokuapp.com/", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class PoblacionController {
 
 	@Autowired
@@ -30,6 +33,11 @@ public class PoblacionController {
 	@GetMapping("/poblaciones/{id_poblacion}")
 	public Poblacion buscar_por_id(@PathVariable(name="id_poblacion") int id) {
 		return pobServ.buscar_id(id);
+	}
+	
+	@GetMapping("/poblaciones/nombre/{nombre}")
+	public Poblacion buscar_por_nombre(@PathVariable(name="nombre") String nombre) {
+		return pobServ.findByName(nombre);
 	}
 	
 	@GetMapping("/poblaciones/{nombre}/hoteles")

@@ -1,6 +1,9 @@
 package main.security;
 
 import static main.security.Constants.LOGIN_URL;
+import static main.security.Constants.SEARCH_URL1;
+import static main.security.Constants.SEARCH_URL2;
+import static main.security.Constants.SEARCH_URL3;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -44,7 +47,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 			.cors().and()
 			.csrf().disable()
-			.authorizeRequests().antMatchers(HttpMethod.POST, LOGIN_URL).permitAll()
+			.authorizeRequests().antMatchers(HttpMethod.POST, LOGIN_URL, SEARCH_URL1, SEARCH_URL2).permitAll()
+			.antMatchers(HttpMethod.GET, SEARCH_URL1, SEARCH_URL2, SEARCH_URL3).permitAll()
 			.anyRequest().authenticated().and()
 				.addFilter(new JWTAuthenticationFilter(authenticationManager()))
 				.addFilter(new JWTAuthorizationFilter(authenticationManager()));

@@ -15,7 +15,7 @@ import main.dao.IUsuarioDAO;
 import main.dto.Usuario;
 
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
+@CrossOrigin(origins = "https://team4-back-end.herokuapp.com/", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class UsuarioController {
 
 	private IUsuarioDAO iUsuarioDAO;
