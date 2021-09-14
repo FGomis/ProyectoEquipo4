@@ -10,6 +10,6 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUsuarios(): Observable<any> {
-    return this.http.get("http://localhost:8084/users", {responseType: 'text'});
+    return this.http.get("https://team4-back-end.herokuapp.com/users", {responseType: 'text'});
   }
 }
