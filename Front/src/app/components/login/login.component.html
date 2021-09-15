@@ -2,14 +2,14 @@
   <div class="titulo">
     <h1>Log In</h1>
   </div>
-  <form name="form" {ngSubmit}="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+  <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
   <div class="div_email mb-3">
     <label id="email_lbl" for="email_input" class="form-label">Usuario:</label>
-    <input type="text" class="form-control" id="email_input" placeholder="ejemplo@dominio.com" name="username" [(ngModel)]="form.username" required #username="ngModel">
+    <input type="text" class="form-control" id="username" placeholder="ejemplo@dominio.com" name="username" [(ngModel)]="form.username" required #username="ngModel">
   </div>
   <div class="div_pass mb-3">
     <label id="pass_lbl" for="password_input" class="form-label">Contraseña:</label>
-    <input type="password" class="form-control" id="password_input" name="password" [(ngModel)]="form.password" required #password="ngModel">
+    <input type="password" class="form-control" id="password" name="password" [(ngModel)]="form.password" required #password="ngModel">
   </div>
   <div class="botoncito">
     <button class="btn btn-primary">Entrar</button>
