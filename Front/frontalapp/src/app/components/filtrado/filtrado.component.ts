@@ -14,9 +14,9 @@ export class FiltradoComponent implements OnInit {
   // Definimos una poblacion por defecto, este atributo cambiara dependiendo de la ciudad buscada
   currentPoblation: Poblacion = {
     id_poblacion: 0,
-    nombre: "Tarragona",
-    ubi_lat: 41.11667,
-    ubi_long: 1.25
+    nombre: "",
+    ubi_lat: 41.15612,
+    ubi_long: 1.10687
   }
   // Definimos un punto en la superficie terrestre donde se centrara el mapa
   currentCenter = {

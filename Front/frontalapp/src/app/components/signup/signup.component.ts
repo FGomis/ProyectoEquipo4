@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -7,26 +8,38 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  form: any = {
+    username: null,
+    password: null
+  };
+  conf_password = "";
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = 'Los datos introducidos son incorrectos';
 
-  nombre = "";
-  apellidos = "";
-  correo = "";
-  usuario = "";
-  pass = "";
-  conf_pass = "";
-  pass_iguales = true;
-
-  constructor(private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  confirm_passw(){
-    if(this.pass==this.conf_pass){
-      this.pass_iguales=true;
-      this.router.navigate(["busqueda"]);
+  onSubmit(): void {
+    const { username, password } = this.form;
+
+    if(this.form.password==this.conf_password){
+      this.authService.register(username, password).subscribe(
+        data => {
+          this.isSuccessful = true;
+          this.isSignUpFailed = false;
+          this.router.navigate(["busqueda"]);
+        },
+        err => {
+          this.errorMessage = err.error.message;
+          this.isSignUpFailed = true;
+        }
+      );
     }else{
-      this.pass_iguales=false;
+      this.isSignUpFailed = true;
+      this.isSuccessful = false;
     }
   }
 

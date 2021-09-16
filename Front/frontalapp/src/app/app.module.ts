@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { TelefonoPipe } from './telefono.pipe';
 import { LetrasPipe } from './letras.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { LetrasPipe } from './letras.pipe';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

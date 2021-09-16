@@ -1,26 +1,9 @@
-<!--
-<div class="container-fluid">
-  <div class="titulo">
-    <h1>Log In</h1>
-  </div>
-  <div class="div_email mb-3">
-    <label id="email_lbl" for="email_input" class="form-label">Correo Electrónico:</label>
-    <input type="email" class="form-control" id="email_input" placeholder="ejemplo@dominio.com" [(ngModel)]="currentEmail">
-  </div>
-  <div class="div_pass mb-3">
-    <label id="pass_lbl" for="password_input" class="form-label">Contraseña:</label>
-    <input type="password" class="form-control" id="password_input" [(ngModel)]="currentPass">
-  </div>
-  <div class="botoncito">
-    <button (click)="checkUser()" class="btn btn-primary">Entrar</button>
-  </div>
-</div>
--->
-
 <section class="form-login">
   <h5>Iniciar sesión</h5>
-  <input class="controls" type="text" name="usuario" value="" placeholder="Usuario" [(ngModel)]="currentEmail">
-  <input class="controls" type="password" name="contrasena" value="" placeholder="Contraseña" [(ngModel)]="currentPass">
-  <input class="buttons" type="submit" name="" value="Ingresar" (click)="checkUser()">
+  <input class="controls" type="text" name="usuario" value="" placeholder="Usuario" [(ngModel)]="form.username">
+  <input class="controls" type="password" name="contrasena" value="" placeholder="Contraseña" [(ngModel)]="form.password">
+  <input class="buttons" type="submit" name="" value="Ingresar" (click)="onSubmit()">
   <p><a href="signup">Registrarme</a></p>
 </section>
+<br>
+<p *ngIf="isLoginFailed==true" style="color: red; text-align: center;">{{errorMessage}}</p>
